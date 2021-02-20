@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.Collection;
 
-/**
+/** 访问决策器：用来决定用户拥有的角色是否拥有访问权限的关键类
  * @作者 江南一点雨
  * @公众号 江南一点雨
  * @微信号 a_java_boy

@@ -14,7 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-/**
+/**第二步：创建好Hr之后，接下来我们需要创建HrService，用来执行登录等操作，HrService需要实现UserDetailsService接口
  * @作者 江南一点雨
  * @公众号 江南一点雨
  * @微信号 a_java_boy
@@ -22,6 +22,7 @@ import java.util.List;
  * @博客 http://wangsong.blog.csdn.net
  * @网站 http://www.javaboy.org
  * @时间 2019-09-20 8:21
+ * 第三步：自定义FilterInvocationSecurityMetadataSource
  */
 @Service
 public class HrService implements UserDetailsService {
@@ -30,6 +31,13 @@ public class HrService implements UserDetailsService {
     @Autowired
     HrRoleMapper hrRoleMapper;
 
+    /**这里最主要是实现了UserDetailsService接口中的loadUserByUsername方法，
+     * 在执行登录的过程中，这个方法将根据用户名去查找用户，如果用户不存在，
+     * 则抛出UsernameNotFoundException异常，否则直接将查到的Hr返回。
+     * @param username
+     * @return
+     * @throws UsernameNotFoundException
+     */
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         Hr hr = hrMapper.loadUserByUsername(username);

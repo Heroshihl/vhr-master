@@ -10,6 +10,9 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
 
+/**第一步创建hr和hrService
+ * 实体类
+ */
 public class Hr implements UserDetails {
     private Integer id;
 
@@ -125,6 +128,10 @@ public class Hr implements UserDetails {
         this.username = username == null ? null : username.trim();
     }
 
+    /**关键点
+     * @return 该方法用来获取当前用户所具有的角色
+     * 直接从roles中获取当前用户所具有的角色，构造SimpleGrantedAuthority然后返回即可。
+     */
     @Override
     @JsonIgnore
     public Collection<? extends GrantedAuthority> getAuthorities() {

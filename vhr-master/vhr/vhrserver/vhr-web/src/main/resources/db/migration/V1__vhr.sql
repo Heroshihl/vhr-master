@@ -15,7 +15,9 @@ MySQL - 8.0.18 : Database - vhr
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 /*Table structure for table `adjustsalary` */
+CREATE DATABASE IF NOT EXISTS `vhr`  DEFAULT CHARACTER SET utf8;
 
+USE `vhr`;
 DROP TABLE IF EXISTS `adjustsalary`;
 
 CREATE TABLE `adjustsalary` (
